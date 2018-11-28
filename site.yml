@@ -9,5 +9,4 @@
   user: root
 
   roles:
-    - common
-
+  - common
