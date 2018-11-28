@@ -1,2 +1,8 @@
 ---
-# tasks file for roles/opencanary
+- name: Install Opencanary under the user-specific virtualenv
+  pip:
+    name:
+    - opencanary-patron-it[remote-logging]
+    state: present  # latest
+    virtualenv: ~/.virtualenv/
+# vi: ts=2 sts=2 sw=2 expandtab:
