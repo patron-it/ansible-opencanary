@@ -10,3 +10,14 @@
 
   roles:
   - common
+
+---
+- name: Install and configure Opencanary app
+  hosts: rpi
+  user: opencanary
+
+  tasks:
+  - import_role:
+      name: opencanary
+
+# vi: ts=2 sts=2 sw=2 expandtab:
