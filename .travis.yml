@@ -1,0 +1,15 @@
+dist: xenial
+sudo: required
+ 
+language: python
+python:
+- "3.7"
+
+services:
+- docker
+
+install:
+- pip install -c constraints.txt -r requirements.txt
+
+script:
+- molecule test

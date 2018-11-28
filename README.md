@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/com/patron-it/ansible-opencanary/master.svg?label=Testing%20%40%20Travis%20CI)](https://travis-ci.com/patron-it/ansible-opencanary)
+
 # ansible-opencanary
 
 # About This Repo #
