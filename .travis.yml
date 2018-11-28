@@ -1,5 +1,8 @@
 dist: xenial
 sudo: required
+
+cache:
+  pip: true
  
 language: python
 python:
