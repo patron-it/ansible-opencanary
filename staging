@@ -5,3 +5,7 @@
 # beowolf.example.com ansible_ssh_user=root
 [rpi]
 rpi-patron-it
+
+[rpi:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_ssh_user=pi
