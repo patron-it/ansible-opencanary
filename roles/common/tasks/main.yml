@@ -1,2 +1,22 @@
 ---
-# tasks file for common
+- name: >
+    Install ACL to enable Ansible use tmp dir when becoming an unprivileged user
+  apt:
+    name:
+    - acl
+    state: latest
+- name: Install pythonic prerequisites
+  apt:
+    name:
+    - python3-setuptools
+    - python3-venv
+    - python3-virtualenv
+    - virtualenv
+    state: latest
+- name: Create a user for opencanary app
+  user:
+    create_home: yes
+    name: opencanary
+    state: present
+    uid: 2001  # to be consistent across updates, changes, reinstalls
+# vi: ts=2 sts=2 sw=2 expandtab:
