@@ -4,17 +4,19 @@
 # Or, you can create separate playbooks in this directory for specific orchestration events.
 
 ---
-- name: apply common configuration to all nodes
-  hosts: all
-  user: root
+- name: Configure system-level entities
+  hosts: rpi
+  become: yes
+  become_method: sudo
 
   roles:
   - common
 
----
 - name: Install and configure Opencanary app
   hosts: rpi
-  user: opencanary
+  become: yes
+  become_method: sudo
+  become_user: opencanary
 
   tasks:
   - import_role:
