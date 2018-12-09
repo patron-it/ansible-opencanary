@@ -9,4 +9,10 @@
     virtualenv: >-
       ~/{{ opencanary_virtualenv }}
     virtualenv_python: python3
+- name: Set up a systemd unit file for opencanary
+  template:
+    src: opencanary.service.j2
+    dest: /etc/systemd/user/opencanary.service
+  become: true
+  become_user: root
 # vi: ts=2 sts=2 sw=2 expandtab:

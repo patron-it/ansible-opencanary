@@ -1,7 +1,11 @@
 ---
 # defaults file for roles/opencanary
+opencanary_description: OpenCanary honeypot
 opencanary_dist: patron-it-opencanary
 # opencanary_dist: opencanary
+opencanary_docs_url: https://patron-it-opencanary.readthedocs.io
+# opencanary_docs_url: http://docs.opencanary.org
+opencanary_unit_args: --dev
 opencanary_virtualenv: .virtualenv
 opencanary_version:
 # opencanary_version: ==0.7.0.post1

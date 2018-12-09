@@ -1,0 +1,13 @@
+[Unit]
+Description={{ opencanary_description }}
+Documentation={{ opencanary_docs_url }}
+After=syslog.target
+After=network.target
+
+[Service]
+Restart=always
+WorkingDirectory=%h
+ExecStart=%h/{{ opencanary_virtualenv }}/bin/opencanaryd {{ opencanary_unit_args }}
+
+[Install]
+WantedBy=default.target
