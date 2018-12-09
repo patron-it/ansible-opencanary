@@ -22,4 +22,8 @@
   - import_role:
       name: opencanary
 
+  environment:
+    XDG_RUNTIME_DIR: >-
+      /run/user/{{ ansible_user_uid }}
+
 # vi: ts=2 sts=2 sw=2 expandtab:
