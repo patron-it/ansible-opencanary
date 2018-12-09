@@ -7,6 +7,6 @@
     state: >-
       {{ opencanary_version | default('') | ternary('present', 'latest') }}
     virtualenv: >-
-      {{ opencanary_virtualenv }}
+      ~/{{ opencanary_virtualenv }}
     virtualenv_python: python3
 # vi: ts=2 sts=2 sw=2 expandtab:
