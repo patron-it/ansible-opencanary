@@ -26,6 +26,7 @@
     dest: /etc/systemd/user/opencanary.service
   become: true
   become_user: root
+  notify: restart opencanary
 - name: Ensure that opencanary service is started
   systemd:
     name: opencanary

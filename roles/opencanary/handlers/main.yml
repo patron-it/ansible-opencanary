@@ -1,2 +1,9 @@
 ---
-# handlers file for roles/opencanary
+- name: Restart opencanary service
+  systemd:
+    name: opencanary
+    daemon_reload: true
+    state: restarted
+    scope: user
+  listen: restart opencanary
+# vi: ts=2 sts=2 sw=2 expandtab:
