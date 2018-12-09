@@ -9,6 +9,17 @@
     virtualenv: >-
       ~/{{ opencanary_virtualenv }}
     virtualenv_python: python3
+- name: Ensure that linger is enabled for opencanary
+  block:
+  - name: Check whether linger is enabled
+    stat:
+      path: /var/lib/systemd/linger/{{ ansible_user_id }}
+    register: linger_file
+  - name: Enable linger if needed
+    shell: loginctl enable-linger {{ ansible_user_id }}
+    become: true
+    become_user: root
+    when: linger_file.stat.exists
 - name: Set up a systemd unit file for opencanary
   template:
     src: opencanary.service.j2
