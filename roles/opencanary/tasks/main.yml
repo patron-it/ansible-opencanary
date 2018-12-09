@@ -19,7 +19,7 @@
     shell: loginctl enable-linger {{ ansible_user_id }}
     become: true
     become_user: root
-    when: linger_file.stat.exists
+    when: not linger_file.stat.exists
 - name: Set up a systemd unit file for opencanary
   template:
     src: opencanary.service.j2
