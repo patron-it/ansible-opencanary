@@ -3,7 +3,8 @@
   pip:
     name:
     - patron-it-opencanary[remote-logging]{{ opencanary_version | default('') }}
-    state: "{{ opencanary_latest | ternary('latest', 'present') }}"
+    state: >-
+      {{ opencanary_version | default('') | ternary('present', 'latest') }}
     virtualenv: >-
       {{ opencanary_virtualenv }}
     virtualenv_python: python3

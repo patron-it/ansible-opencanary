@@ -2,5 +2,5 @@
 # defaults file for roles/opencanary
 opencanary_virtualenv: ~/.virtualenv/
 opencanary_version:
-opencanary_latest: yes
+# opencanary_version: ==0.7.0.post1
 # vi: ts=2 sts=2 sw=2 expandtab:
