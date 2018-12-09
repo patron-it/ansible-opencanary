@@ -6,7 +6,7 @@
 ---
 - name: Configure system-level entities
   hosts: rpi
-  become: yes
+  become: true
   become_method: sudo
 
   roles:
@@ -14,7 +14,7 @@
 
 - name: Install and configure Opencanary app
   hosts: rpi
-  become: yes
+  become: true
   become_method: sudo
   become_user: opencanary
 

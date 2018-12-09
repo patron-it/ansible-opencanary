@@ -15,7 +15,7 @@
     state: latest
 - name: Create a user for opencanary app
   user:
-    create_home: yes
+    create_home: true
     name: opencanary
     state: present
     uid: 2001  # to be consistent across updates, changes, reinstalls
