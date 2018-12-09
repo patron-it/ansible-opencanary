@@ -2,7 +2,8 @@
 - name: Install Opencanary under the user-specific virtualenv
   pip:
     name:
-    - patron-it-opencanary[remote-logging]{{ opencanary_version | default('') }}
+    - >-
+      {{ opencanary_dist }}[remote-logging]{{ opencanary_version | default('') }}
     state: >-
       {{ opencanary_version | default('') | ternary('present', 'latest') }}
     virtualenv: >-
