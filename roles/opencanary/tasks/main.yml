@@ -9,6 +9,11 @@
     virtualenv: >-
       ~/{{ opencanary_virtualenv }}
     virtualenv_python: python3
+- name: Set up a config file for opencanary
+  template:
+    src: opencanary.conf.j2
+    dest: ~/opencanary.conf
+  notify: restart opencanary
 - name: Ensure that linger is enabled for opencanary
   block:
   - name: Check whether linger is enabled

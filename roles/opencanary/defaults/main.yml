@@ -1,10 +1,13 @@
 ---
-# defaults file for roles/opencanary
+opencanary_alerts_server_url: https://url.to/replace
+opencanary_alerts_secret: secret.to.replace
 opencanary_description: OpenCanary honeypot
 opencanary_dist: patron-it-opencanary
 # opencanary_dist: opencanary
 opencanary_docs_url: https://patron-it-opencanary.readthedocs.io
 # opencanary_docs_url: http://docs.opencanary.org
+opencanary_node_description: node_description_to_replace
+opencanary_node_id: node_id_to_replace
 opencanary_unit_args: --dev
 opencanary_virtualenv: .virtualenv
 opencanary_version:

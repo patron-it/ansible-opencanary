@@ -1,0 +1,91 @@
+{
+    "device.description": "{{ opencanary_node_description }}",
+    "device.node_id": "{{ opencanary_node_id }}",
+    "device.template": "Synology NAS",
+    "device.dhcp.enabled": false,
+
+    "http.banner": "Synology diskstation",
+    "http.enabled": true,
+    "http.port": 80,
+    "http.skin": "nasLogin",
+    "http.skin.list": [
+        {
+            "desc": "Plain HTML Login",
+            "name": "basicLogin"
+        },
+        {
+            "desc": "Synology NAS Login",
+            "name": "nasLogin"
+        }
+    ],
+
+    "logger": {
+        "class": "PyLogger",
+        "kwargs": {
+            "formatters": {
+                "plain": {
+                    "format": "%(message)s"
+                }
+            },
+            "handlers": {
+                "console": {
+                    "class": "logging.StreamHandler",
+                    "stream": "ext://sys.stdout"
+                },
+                "file": {
+                    "class": "logging.FileHandler",
+                    "filename": "/var/log/opencanary.log"
+                },
+                "HTTPAlert": {
+                    "class": "opencanary.logger.HTTPAlertHandler",
+                    "server_url": "{{ opencanary_alerts_server_url }}",
+                    "secret": "{{ opencanary_alerts_secret }}",
+                    "client_id": "{{ opencanary_node_id }}"
+                }
+            }
+
+        }
+    },
+
+    "portscan.synrate": 5,
+    "portscan.enabled": true,
+    "smb.auditfile": "/var/log/samba-audit.log",
+    "smb.configfile": "/etc/samba/smb.conf",
+    "smb.domain": "workgroup",
+    "smb.enabled": true,
+    "smb.port": 445,
+    "smb.filelist": [
+        {
+            "name": "2016-Tender-Summary.pdf",
+            "type": "PDF"
+        },
+        {
+            "name": "passwords.docx",
+            "type": "DOCX"
+        }
+    ],
+    "smb.mode": "workgroup",
+    "smb.netbiosname": "FILESERVER",
+    "smb.serverstring": "Windows 2003 File Server",
+    "smb.sharecomment": "Office documents",
+    "smb.sharename": "Documents",
+    "smb.sharepath": "/home/demo/share",
+    "smb.workgroup": "OFFICE",
+
+    "ssh.enabled": true,
+    "ssh.port": 22,
+    "ssh.version": "SSH-2.0-OpenSSH_5.1p1 Debian-4",
+
+    "httpproxy.enabled": false,
+    "mysql.enabled": false,
+    "rdp.enabled": false,
+    "ftp.enabled": false,
+    "sip.enabled": false,
+    "snmp.enabled": false,
+    "ntp.enabled": false,
+    "tftp.enabled": false,
+    "telnet.enabled": false,
+    "mssql.enabled": false,
+    "vnc.enabled": false
+}
+            
