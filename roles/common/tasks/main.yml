@@ -13,6 +13,19 @@
     line: >-
       Unattended-Upgrade::Automatic-Reboot "true";
     state: present
+- name: Disable unnecessary RaspberryPi features
+  lineinfile:
+    path: /boot/config.txt
+    regexp: >-
+      {{ item.regexp }}
+    line: >-
+      {{ item.line }}
+    state: present
+  loop:
+  - regexp: dtparam=
+    line: dtparam=audio=off
+  - regexp: dtoverlay=
+    line: dtoverlay=pi3-disable-wifi,pi3-disable-bt
 - name: Install system software prerequisites
   apt:
     name:
