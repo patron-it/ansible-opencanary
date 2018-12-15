@@ -5,6 +5,16 @@
     name:
     - acl
     state: latest
+- name: Install system software prerequisites
+  apt:
+    name:
+    - git
+    - jq
+    - mc
+    - openvpn
+    - samba
+    - unattended-upgrades
+    state: latest
 - name: Install pythonic prerequisites
   apt:
     name:
