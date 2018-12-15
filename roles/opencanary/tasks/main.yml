@@ -3,7 +3,7 @@
   pip:
     name:
     - >-
-      {{ opencanary_dist }}[remote-logging]{{ opencanary_version | default('') }}
+      {{ opencanary_dist }}[remote_logging]{{ opencanary_version | default('') }}
     state: >-
       {{ opencanary_version | default('') | ternary('present', 'latest') }}
     virtualenv: >-
