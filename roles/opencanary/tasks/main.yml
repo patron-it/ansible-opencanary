@@ -21,7 +21,7 @@
       path: /var/lib/systemd/linger/{{ ansible_user_id }}
     register: linger_file
   - name: Enable linger if needed
-    shell: loginctl enable-linger {{ ansible_user_id }}
+    command: loginctl enable-linger {{ ansible_user_id }}
     become: true
     become_user: root
     when: not linger_file.stat.exists
