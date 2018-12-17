@@ -8,6 +8,7 @@
 - name: Enable automatic reboots after unattended upgrades
   lineinfile:
     path: /etc/apt/apt.conf.d/50unattended-upgrades
+    create: true
     regexp: >-
       Unattended-Upgrade::Automatic-Reboot "true";
     line: >-
