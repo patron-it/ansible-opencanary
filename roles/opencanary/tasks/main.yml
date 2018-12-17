@@ -1,9 +1,14 @@
 ---
+- name: Copy venv constraints for OpenCanary
+  copy:
+    src: opencanary-venv-constraints.txt
+    dest: ~/
 - name: Install Opencanary under the user-specific virtualenv
   pip:
     name:
     - >-
       {{ opencanary_dist }}[remote_logging]{{ opencanary_version | default('') }}
+    extra_args: -c ~/opencanary-venv-constraints.txt
     state: >-
       {{ opencanary_version | default('') | ternary('present', 'latest') }}
     virtualenv: >-
