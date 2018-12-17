@@ -10,8 +10,6 @@ platforms:
   image: debian:stretch
 - name: debian_8_jessie
   image: debian:jessie
-- name: debian_7_wheezy
-  image: debian:wheezy
 
 # Envs expected to fail:
 - name: debian_10_testing
