@@ -22,6 +22,10 @@
     line: >-
       {{ item.line }}
     state: present
+  register: line_in_config_replacement
+  failed_when:
+  - line_in_config_replacement is failed
+  - line_in_config_replacement.rc != 257
   loop:
   - regexp: dtparam=
     line: dtparam=audio=off
