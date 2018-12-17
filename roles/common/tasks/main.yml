@@ -4,7 +4,7 @@
   apt:
     name:
     - acl
-    state: latest
+    state: present
 - name: Enable automatic reboots after unattended upgrades
   lineinfile:
     path: /etc/apt/apt.conf.d/50unattended-upgrades
@@ -35,7 +35,7 @@
     - openvpn
     - samba
     - unattended-upgrades
-    state: latest
+    state: present
 - name: Install pythonic prerequisites
   apt:
     name:
@@ -43,7 +43,7 @@
     - python3-venv
     - python3-virtualenv
     - virtualenv
-    state: latest
+    state: present
 - name: Create a user for opencanary app
   user:
     create_home: true
