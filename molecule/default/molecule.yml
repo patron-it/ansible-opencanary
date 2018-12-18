@@ -8,8 +8,6 @@ lint:
 platforms:
 - name: debian_9_stretch
   image: debian:stretch
-- name: debian_8_jessie
-  image: debian:jessie
 
 # Envs expected to fail:
 - name: debian_10_testing
