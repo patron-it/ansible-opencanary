@@ -30,6 +30,8 @@
     become: true
     become_user: root
     when: not linger_file.stat.exists
+  when:
+  - ansible_service_mgr == 'systemd'
 - name: Set up a systemd unit file for opencanary
   template:
     src: opencanary.service.j2
@@ -44,4 +46,6 @@
     daemon_reload: true
     state: started
     scope: user
+  when:
+  - ansible_service_mgr == 'systemd'
 # vi: ts=2 sts=2 sw=2 expandtab:
