@@ -6,4 +6,6 @@
     state: restarted
     scope: user
   listen: restart opencanary
+  when:
+  - ansible_service_mgr == 'systemd'
 # vi: ts=2 sts=2 sw=2 expandtab:
