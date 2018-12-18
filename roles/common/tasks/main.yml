@@ -49,6 +49,12 @@
     - python3-virtualenv
     - virtualenv
     state: present
+- name: Install build dependencies for python OS-specific binary wheels
+  apt:
+    name:
+    - build-essential
+    - python3-dev
+    state: present
 - name: Create a user for opencanary app
   user:
     create_home: true
