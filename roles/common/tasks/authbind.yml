@@ -1,0 +1,18 @@
+---
+- name: Install privileged ports access software
+  apt:
+    name:
+    - authbind
+    state: present
+- name: Ensure that authbind config dir exists
+  file:
+    path: /etc/authbind/byuid/
+    state: directory
+- name: Configure opencanary user to be allowed to listen to privileged ports
+  copy:
+    dest: /etc/authbind/byuid/{{ app_user_id }}
+    content: |-
+      {% for port in app_user_privileged_ports %}
+      0.0.0.0/0,{{ port }}
+      ::/0,{{ port }}
+      {% endfor %}

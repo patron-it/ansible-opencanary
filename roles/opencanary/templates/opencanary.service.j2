@@ -7,7 +7,7 @@ After=network.target
 [Service]
 Restart=always
 WorkingDirectory=%h
-ExecStart=%h/{{ opencanary_virtualenv }}/bin/opencanaryd {{ opencanary_unit_args }}
+ExecStart=/usr/bin/authbind "%h/{{ opencanary_virtualenv }}/bin/opencanaryd" {{ opencanary_unit_args }}
 
 [Install]
 WantedBy=default.target

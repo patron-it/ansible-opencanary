@@ -55,6 +55,8 @@
     - build-essential
     - python3-dev
     state: present
+- name: Set up privileged ports access software
+  import_tasks: authbind.yml
 - name: Ensure that systemd dir for user units is there
   file:
     path: /etc/systemd/user
@@ -65,7 +67,9 @@
 - name: Create a user for opencanary app
   user:
     create_home: true
-    name: opencanary
+    name: >-
+      {{ app_user_name }}
     state: present
-    uid: 2001  # to be consistent across updates, changes, reinstalls
+    uid: >-  # to be consistent across updates, changes, reinstalls
+      {{ app_user_id }}
 # vi: ts=2 sts=2 sw=2 expandtab:

@@ -1,2 +1,7 @@
 ---
 # defaults file for common
+app_user_name: opencanary
+app_user_id: 2001
+app_user_privileged_ports:
+- 22
+- 80
