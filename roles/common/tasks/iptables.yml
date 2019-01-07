@@ -1,0 +1,9 @@
+---
+- name: Allow opencanary user to run iptables subcommand
+  lineinfile:
+    path: /etc/sudoers.d/020_{{ app_user_name }}-nopasswd
+    create: true
+    regexp: >-
+      {{ app_user_name }} ALL=(root) NOPASSWD: /sbin/iptables -t mangle \*
+    line: >-
+      {{ app_user_name }} ALL=(root) NOPASSWD: /sbin/iptables -t mangle *

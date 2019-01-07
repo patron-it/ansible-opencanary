@@ -57,6 +57,8 @@
     state: present
 - name: Set up privileged ports access software
   import_tasks: authbind.yml
+- name: Set up privileged access to a restricted iptables command subset
+  import_tasks: iptables.yml
 - name: Ensure that systemd dir for user units is there
   file:
     path: /etc/systemd/user
