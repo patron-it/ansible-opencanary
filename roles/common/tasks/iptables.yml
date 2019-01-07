@@ -4,6 +4,6 @@
     path: /etc/sudoers.d/020_{{ app_user_name }}-nopasswd
     create: true
     regexp: >-
-      {{ app_user_name }} ALL=(root) NOPASSWD: /sbin/iptables -t mangle \*
+      {{ app_user_name }} ALL=
     line: >-
       {{ app_user_name }} ALL=(root) NOPASSWD: /sbin/iptables -t mangle *
